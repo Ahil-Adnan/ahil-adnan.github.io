@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahil Adnan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto+Condensed:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2B3A55;
+    --text: #1A1A1A;
+    --cream: #E8DFC9;
+    --teal: #4C7A72;
+    --muted: #6B6350;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Roboto Condensed', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .monogram {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .monogram span {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--cream);
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: clamp(32px, 6vw, 48px);
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  p.status {
+    font-size: 18px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  p.status .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 24px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <div class="monogram"><span>AA</span></div>
+  <h1>Ahil Adnan</h1>
+  <p class="status"><span class="dot"></span>Building — check back soon.</p>
+
+  <footer>ahil-adnan.github.io</footer>
+
+</body>
+</html>
