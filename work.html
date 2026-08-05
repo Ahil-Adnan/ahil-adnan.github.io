@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
 <nav>
   <a href="index.html" class="brand">
     <div class="monogram"><span>AA</span></div>
@@ -21,47 +21,47 @@
     <a href="mailto:ahiladnanabc2007@gmail.com" class="email-link">Email me</a>
   </div>
 </nav>
-
+ 
 <main>
   <h1>Case study: beating a hand-written rule at flagging declining content</h1>
   <p class="subtext" style="text-align:left;">FlyRank AI internship — real search &amp; content performance data, 30,000 pages, 32 clients.</p>
-
+ 
   <h2>Notebook 1 — Does search volume actually mean more traffic?</h2>
-
+ 
   <h3>The problem</h3>
   <p>The team was checking if a learned model could catch declining webpages better than a hand-written rule — across 30,000 real pages. Part of that meant stress-testing an earlier finding: that "high search volume &rarr; more traffic" barely held up (correlation near zero). The question was whether that near-zero result was real, or just noise from dead, zero-impression pages dragging the number down.</p>
-
+ 
   <h3>What I did</h3>
   <p>I was given three options and picked the one that looked most doable at my level: re-run the original analysis, but filtered down to only pages that had impressions in the last 90 days, then recheck the correlation. I collaborated with Claude to write and understand the code — I'm a junior in ML, still learning the fundamentals, so a lot of this was new to me.</p>
-
+ 
   <h3>What came of it</h3>
   <p>The correlation stayed close to zero, even after filtering. The original finding held — it wasn't an artifact of dead pages skewing the numbers. I expected filtering to change the answer. It didn't. That's when it clicked: check a number before you trust a claim.</p>
-
+ 
   <h2>Notebook 2 — Is the model learning, or cheating?</h2>
-
+ 
   <h3>The problem</h3>
   <p>Same underlying task — flagging declining pages — but now the question was whether a model built to do this was actually learning something real, or just cheating off a feature that gave away the answer. My specific task: test whether increasing tree depth improved precision@50, using honest, non-leaky features.</p>
-
+ 
   <h3>What I did</h3>
   <p>The notebook walked through a worked example first — a feature called trend_pct that looked like it massively boosted precision, but only because the "declining" label had been defined using trend data in the first place. It wasn't predicting anything; it was just repeating the answer back. That part was flagged for me to notice, not something I found blind.</p>
   <p>My actual task was separate: run the depth test using only the clean features — content age, last updated date, traffic, ranking position, click rate, and length. No trend_pct.</p>
-
+ 
   <img src="assets/precision-table.png" alt="Precision@20 and Precision@50 comparison between max_depth 3 and 4">
   <p class="img-caption">Real output from the notebook — precision dropped as tree depth increased, not improved.</p>
-
+ 
   <h3>What came of it</h3>
   <p>Increasing depth made precision@50 worse, not better — classic overfitting. Going deeper wasn't the fix. The clean model still beat the hand-written rule overall (confirmed from Notebook 1's baseline), but more depth isn't how you improve it.</p>
-
+ 
   <h2>How I work</h2>
   <img src="assets/how-i-work-icons.png" alt="Process, AI use, and Judgment icons" class="icons-row">
   <p><strong>Process</strong> — pick one small, well-defined thing to test, run it, read the actual number before deciding anything.</p>
   <p><strong>AI use</strong> — I use Claude to write and understand code together, not to hand off decisions. If I can't explain a line, I don't ship it.</p>
   <p><strong>Judgment</strong> — a good-looking score gets checked before it gets trusted. Depth going up but precision going down was the clearest example: the "better" model wasn't actually better.</p>
-
+ 
   <h3>Proof this is a real, maintained repo</h3>
   <img src="assets/github-repo.png" alt="GitHub repository file list for FlyRank-Machine-Learning">
   <p class="img-caption">github.com/Ahil-Adnan/FlyRank-Machine-Learning — every notebook and assignment, committed as I go.</p>
-
+ 
   <h2>About me</h2>
   <div class="bio-row">
     <img src="assets/bio-photo.jpg" alt="Photo of Ahil Adnan">
@@ -70,15 +70,16 @@
       <p>A CV can say I did an ML internship — it can't show that I can actually take messy data, build a model, and explain honestly what it proves.</p>
     </div>
   </div>
-
+ 
   <div class="cta-center">
     <a href="mailto:ahiladnanabc2007@gmail.com" class="cta">Open to internship opportunities — reach out</a>
+    <p class="status-note" style="margin-top:14px;">Button not opening your mail app? Email me directly: <strong>ahiladnanabc2007@gmail.com</strong></p>
   </div>
 </main>
-
+ 
 <footer>
   ahil-adnan.github.io
 </footer>
-
+ 
 </body>
 </html>
