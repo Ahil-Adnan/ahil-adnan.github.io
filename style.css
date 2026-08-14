@@ -4,19 +4,19 @@
   --cream: #E8DFC9;
   --card: #DDD2B4;
   --border: #D2C7A8;
-  --teal: #4C7A72;
-  --muted: #6B6350;
+  --teal: #426A63;
+  --muted: #615A48;
 }
-
+ 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 body {
   background: var(--cream);
   color: var(--text);
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 1.6;
 }
-
+ 
 nav {
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@ nav {
   padding: 20px 32px;
   border-bottom: 1px solid var(--border);
 }
-
+ 
 nav .brand {
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@ nav .brand {
   text-decoration: none;
   color: var(--text);
 }
-
+ 
 nav .monogram {
   width: 36px;
   height: 36px;
@@ -42,53 +42,53 @@ nav .monogram {
   align-items: center;
   justify-content: center;
 }
-
+ 
 nav .monogram span {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: var(--cream);
 }
-
+ 
 nav .brand-name {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
   font-size: 18px;
 }
-
+ 
 nav .links {
   display: flex;
   gap: 24px;
   align-items: center;
   font-size: 15px;
 }
-
+ 
 nav .links a {
   color: var(--text);
   text-decoration: none;
 }
-
+ 
 nav .links a:hover {
   color: var(--teal);
 }
-
+ 
 nav .links .email-link {
   color: var(--teal);
   font-weight: 500;
 }
-
+ 
 main {
   max-width: 780px;
   margin: 0 auto;
   padding: 60px 24px 100px;
 }
-
+ 
 h1 {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
   letter-spacing: 0.3px;
 }
-
+ 
 h2 {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
@@ -96,31 +96,31 @@ h2 {
   margin: 48px 0 16px;
   letter-spacing: 0.2px;
 }
-
+ 
 h3 {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
   font-size: 18px;
   margin: 28px 0 10px;
 }
-
+ 
 p {
   margin-bottom: 14px;
 }
-
+ 
 .claim {
   font-size: clamp(28px, 5vw, 40px);
   text-align: center;
   margin: 40px 0 20px;
 }
-
+ 
 .subtext {
   text-align: center;
   color: var(--muted);
   font-size: 16px;
   margin-bottom: 32px;
 }
-
+ 
 .cta {
   display: inline-block;
   background: var(--navy);
@@ -132,16 +132,16 @@ p {
   border-radius: 6px;
   font-size: 16px;
 }
-
+ 
 .cta:hover {
   background: #35476b;
 }
-
+ 
 .cta-center {
   text-align: center;
   margin: 32px 0;
 }
-
+ 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -149,14 +149,14 @@ p {
   padding: 24px;
   margin: 20px 0;
 }
-
+ 
 .status-note {
   text-align: center;
   color: var(--muted);
   font-size: 14px;
   margin-top: 8px;
 }
-
+ 
 .status-note .dot {
   display: inline-block;
   width: 7px;
@@ -165,7 +165,7 @@ p {
   background: var(--teal);
   margin-right: 6px;
 }
-
+ 
 img {
   max-width: 100%;
   border-radius: 8px;
@@ -173,7 +173,7 @@ img {
   display: block;
   margin: 16px 0;
 }
-
+ 
 .img-caption {
   font-size: 13px;
   color: var(--muted);
@@ -181,18 +181,18 @@ img {
   margin-top: -8px;
   margin-bottom: 20px;
 }
-
+ 
 .icons-row img {
   border: none;
 }
-
+ 
 .bio-row {
   display: flex;
   gap: 24px;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
+ 
 .bio-row img {
   width: 140px;
   height: 140px;
@@ -200,12 +200,12 @@ img {
   border-radius: 8px;
   flex-shrink: 0;
 }
-
+ 
 .bio-text {
   flex: 1;
   min-width: 240px;
 }
-
+ 
 footer {
   text-align: center;
   padding: 32px 24px;
