@@ -31,11 +31,80 @@ Index · HTML
     <a href="work.html" class="cta">See the work</a>
   </div>
  
-  <div class="card">
-    <h3 style="margin-top:0;">Live demo</h3>
-    <p>Not ready yet — the case study below shows the real numbers and reasoning behind this claim, straight from the notebooks.</p>
-    <p class="status-note"><span class="dot"></span>Working on a live demo. Check the case study in the meantime.</p>
+    <div class="card">
+    <h3 style="margin-top:0;">Live demo — try the baseline rule</h3>
+    <p>This is the actual hand-written rule from my case study: stale + visible + underperforming CTR for its ranking position. Enter numbers for a real (or made-up) page and see the score, reason code, and action it would get.</p>
+ 
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin:18px 0;">
+      <div>
+        <label style="display:block; font-size:14px; margin-bottom:4px;">Impressions (last 90 days)</label>
+        <input type="number" id="demoImpressions" value="500" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border); font-family:'Roboto Condensed', sans-serif;">
+      </div>
+      <div>
+        <label style="display:block; font-size:14px; margin-bottom:4px;">Clicks (last 90 days)</label>
+        <input type="number" id="demoClicks" value="2" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border); font-family:'Roboto Condensed', sans-serif;">
+      </div>
+      <div>
+        <label style="display:block; font-size:14px; margin-bottom:4px;">Avg. search position</label>
+        <input type="number" id="demoPosition" value="6" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border); font-family:'Roboto Condensed', sans-serif;">
+      </div>
+      <div>
+        <label style="display:block; font-size:14px; margin-bottom:4px;">Days since last update</label>
+        <input type="number" id="demoDays" value="220" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border); font-family:'Roboto Condensed', sans-serif;">
+      </div>
+    </div>
+ 
+    <button id="demoRunBtn" class="cta" style="border:none; cursor:pointer;">Score this page</button>
+ 
+    <div id="demoResult" style="display:none; margin-top:18px; padding:16px; background:var(--cream); border:1px solid var(--border); border-radius:8px;">
+      <p style="margin-bottom:6px;"><strong>Score:</strong> <span id="demoScore"></span></p>
+      <p style="margin-bottom:6px;"><strong>Reason code:</strong> <span id="demoReason"></span></p>
+      <p style="margin-bottom:0;"><strong>Action:</strong> <span id="demoAction"></span></p>
+    </div>
+ 
+    <p class="status-note" style="margin-top:14px;">This runs the exact rule from my case study, live in your browser — not the trained model itself (that needs a server), just the hand-written baseline it's compared against.</p>
   </div>
+ 
+  <script>
+  document.getElementById('demoRunBtn').addEventListener('click', function() {
+    const impressions = parseFloat(document.getElementById('demoImpressions').value) || 0;
+    const clicks = parseFloat(document.getElementById('demoClicks').value) || 0;
+    const position = parseFloat(document.getElementById('demoPosition').value) || 999;
+    const days = parseFloat(document.getElementById('demoDays').value);
+ 
+    const ctr = impressions > 0 ? clicks / impressions : 0;
+    const expectedCtr = position <= 10 ? 0.0039 : 0.0018;
+    const ctrUnderperforming = ctr < (expectedCtr * 0.5);
+    const isStale = !isNaN(days) && days >= 180;
+    const visible = impressions >= 10;
+ 
+    let score, reason, action;
+ 
+    if (isStale && visible && ctrUnderperforming) {
+      score = impressions;
+      reason = 'stale_low_ctr';
+      action = 'review_and_refresh';
+    } else if (isStale && visible) {
+      score = impressions * 0.5;
+      reason = 'stale_visible';
+      action = 'review';
+    } else if (ctrUnderperforming && visible) {
+      score = impressions * 0.3;
+      reason = 'ctr_underperforming';
+      action = 'review_ctr';
+    } else {
+      score = 0;
+      reason = 'not_flagged';
+      action = 'no_action';
+    }
+ 
+    document.getElementById('demoScore').textContent = score.toFixed(1);
+    document.getElementById('demoReason').textContent = reason;
+    document.getElementById('demoAction').textContent = action;
+    document.getElementById('demoResult').style.display = 'block';
+  });
+  </script>
+ 
  
   <div class="card">
     <h3 style="margin-top:0;">Links</h3>
